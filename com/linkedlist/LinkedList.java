@@ -13,7 +13,7 @@ public class LinkedList {
         linkedList.addFirst(56);
         linkedList.append(70);
         linkedList.insertBetween(56, 30);
-        linkedList.popFirst();
+        linkedList.popLast();
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -53,6 +53,17 @@ public class LinkedList {
         Node currentNode = head;
         head = head.next;
         return currentNode;
+    }
+
+    //uc6 delete last element in the list
+    public <M> void popLast() {
+        Node currentNode = head;
+        Node previousToLast = null;
+        while (currentNode.next != null) {
+            previousToLast = currentNode;
+            currentNode = currentNode.next;
+        }
+        previousToLast.next = null;
     }
 
     //PRINTING METHOD FOR LINKED LIST
