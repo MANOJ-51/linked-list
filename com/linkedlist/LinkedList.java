@@ -10,15 +10,20 @@ public class LinkedList {
         //creating object of linked list class
         LinkedList linkedList = new LinkedList();
 
-        linkedList.head = new Node<>(56);
-        Node node2 = new Node<>(30);
-        Node node3 = new Node<>(70);
-
-        linkedList.head.next = node2;
-        node2.next = node3;
+        linkedList.addFirst(70);
+        linkedList.addFirst(30);
+        linkedList.addFirst(56);
 
 
         linkedList.print();  //printing linked list elements keys and data
+    }
+
+    //uc-2 insert 70,30,56 output-56,30,70
+    public <M> void addFirst(M key) {
+        Node node = new Node<>(key);    //first adds 70 next overides 70 with 30 and then 56
+        node.setKey(key);
+        node.setNext(node);
+        head = node;
     }
 
     //PRINTING METHOD FOR LINKED LIST
