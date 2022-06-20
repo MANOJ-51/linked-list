@@ -13,8 +13,8 @@ public class LinkedList {
         linkedList.addFirst(56);
         linkedList.append(70);
         linkedList.insertBetween(56, 30);
-        linkedList.popLast();
         linkedList.search(30);
+        linkedList.searchInseret(30,40);
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -78,6 +78,19 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
         System.out.println("NODE not found");
+        return false;
+    }
+
+    //uc8 insert 40 after 30  output56,30,40,70
+    public <M> boolean searchInseret(M previousKey, M insertKey) {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.key.equals(previousKey)) {
+                insertBetween(previousKey, insertKey);
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
         return false;
     }
 
