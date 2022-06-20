@@ -14,6 +14,7 @@ public class LinkedList {
         linkedList.append(70);
         linkedList.insertBetween(56, 30);
         linkedList.popLast();
+        linkedList.search(30);
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -64,6 +65,20 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
         previousToLast.next = null;
+    }
+
+    //uc7 search element
+    public <M> boolean search(M key) {
+        Node currentNode = head;
+        while (currentNode.key != null) {
+            if (currentNode.key == key) {
+                System.out.println("NODE:-" + currentNode.key);
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        System.out.println("NODE not found");
+        return false;
     }
 
     //PRINTING METHOD FOR LINKED LIST
