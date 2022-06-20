@@ -11,8 +11,8 @@ public class LinkedList {
         LinkedList linkedList = new LinkedList();
 
         linkedList.addFirst(56);
-        linkedList.append(30);
         linkedList.append(70);
+        linkedList.insertBetween(56, 30);
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -33,6 +33,17 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
         Node node = new Node(key);
+        currentNode.next = node;
+    }
+
+    //uc-4 insert 30 in between 56 and 70
+    public <M> void insertBetween(M previousKey, M key) {
+        Node currentNode = head;
+        while (currentNode.key != previousKey) {
+            currentNode = currentNode.next;
+        }
+        Node node = new Node(key);
+        node.next = currentNode.next;
         currentNode.next = node;
     }
 
