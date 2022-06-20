@@ -10,9 +10,9 @@ public class LinkedList {
         //creating object of linked list class
         LinkedList linkedList = new LinkedList();
 
-        linkedList.addFirst(70);
-        linkedList.addFirst(30);
         linkedList.addFirst(56);
+        linkedList.append(30);
+        linkedList.append(70);
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -20,10 +20,20 @@ public class LinkedList {
 
     //uc-2 insert 70,30,56 output-56,30,70
     public <M> void addFirst(M key) {
-        Node node = new Node<>(key);    //first adds 70 next overides 70 with 30 and then 56
-        node.setKey(key);
-        node.setNext(node);
+        Node node = new Node(key);    //first adds 70 next overides 70 with 30 and then 56
+
+        node.setNext(head);
         head = node;
+    }
+
+    //uc-3 first we add 56 then we append 30 and 70 to 56 output 56->30->70
+    public <M> void append(M key) {
+        Node currentNode = head;     //temply taken as head
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        Node node = new Node(key);
+        currentNode.next = node;
     }
 
     //PRINTING METHOD FOR LINKED LIST
