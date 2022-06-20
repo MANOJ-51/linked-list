@@ -13,6 +13,7 @@ public class LinkedList {
         linkedList.addFirst(56);
         linkedList.append(70);
         linkedList.insertBetween(56, 30);
+        linkedList.popFirst();
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -45,6 +46,13 @@ public class LinkedList {
         Node node = new Node(key);
         node.next = currentNode.next;
         currentNode.next = node;
+    }
+
+    //uc5 delete first element 56  out put 30->70
+    public <M> Node popFirst() {
+        Node currentNode = head;
+        head = head.next;
+        return currentNode;
     }
 
     //PRINTING METHOD FOR LINKED LIST
