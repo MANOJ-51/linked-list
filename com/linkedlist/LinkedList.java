@@ -15,6 +15,7 @@ public class LinkedList {
         linkedList.insertBetween(56, 30);
         linkedList.search(30);
         linkedList.searchInseret(30,40);
+        linkedList.deleteByKey(40);
 
 
         linkedList.print();  //printing linked list elements keys and data
@@ -92,6 +93,33 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
         return false;
+    }
+
+    //uc9 delete element 40 and view size of list
+    public <M> boolean deleteByKey(M key){
+        Node currentNode = head;
+        Node previousNode =head;
+        while (currentNode!=null){
+            if (currentNode.key==key){
+                previousNode.next=currentNode.next;
+                size();
+                return true;
+            }
+            previousNode=currentNode;
+            currentNode=currentNode.next;
+        }
+        return false;
+    }
+
+    //size
+    public <T> void size(){
+        Node currentNode =head;
+        int count=0;
+        while (currentNode!=null){
+            count++;
+            currentNode=currentNode.next;
+        }
+        System.out.println("size of linked list id "+ count);
     }
 
     //PRINTING METHOD FOR LINKED LIST
